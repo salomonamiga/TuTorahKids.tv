@@ -46,6 +46,10 @@ $temporada = $datosPrograma['temporada'];
 $titvideo = $datosPrograma['titulo'];
 $categoria_url = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', trim($datosPrograma['categoria'])));
 
+// Detectar si es el programa específico que necesita intro
+$mostrar_intro = (strpos($_SERVER['REQUEST_URI'], 'la-perasha-en-ia-escuelas') !== false);
+$intro_param = $mostrar_intro ? '&intro=donacion' : '';
+
 $restitulo = $db->getRow("SELECT nombre,descripcionInfantil FROM categorias WHERE idCategoria = ?", array($idCategoria));
 $videouri = $db->getRow("SELECT c.clipInfantil, sum( TIME_TO_SEC(g.duracionMultix) ) AS duracion FROM grabaciones g LEFT JOIN categorias c ON c.idCategoria = g.idCategoria WHERE estatusWF = 6 AND newIdMultix <> '' AND g.baja = 0 AND g.videoteca = 1 AND now() > fechaDisponibilidad AND idGrabacion IN ( SELECT idGrabacion FROM grabacionesSecciones WHERE seccion = (SELECT idSeccion FROM secciones WHERE nombre = 'Infantil' ) AND baja = 0 ) AND c.idCategoria = ?", array($idCategoria));
 
@@ -80,7 +84,7 @@ $videouri = $db->getRow("SELECT c.clipInfantil, sum( TIME_TO_SEC(g.duracionMulti
           <div class="col-12 col-lg-9 p-1" style="z-index:1;">
             <!-- PLAYER -->
             <div class="MultixPlayer" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width:100%;" allowfullscreen="true" scrolling="no" frameborder="0">
-              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="radiant/vod?=<?= $titvideo ?>&mu=<?= $video ?>" title="0" byline="0" portrait="0" width="640" height="360" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="border:none;" allowfullscreen sandbox="allow-scripts allow-presentation allow-same-origin" allow="autoplay; fullscreen; picture-in-picture; xr-spatial-tracking; encrypted-media"></iframe>
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="radiant/vod?=<?= $titvideo ?>&mu=<?= $video ?><?= $intro_param ?>" title="0" byline="0" portrait="0" width="640" height="360" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="border:none;" allowfullscreen sandbox="allow-scripts allow-presentation allow-same-origin" allow="autoplay; fullscreen; picture-in-picture; xr-spatial-tracking; encrypted-media"></iframe>
             </div>
             <!-- PLAYER -->
           </div>
