@@ -1,0 +1,38 @@
+# Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+php_errorlog
+adodb_errors.log
+
+# Archivos de configuración sensibles
+config.php
+*.ini
+
+# Directorios de cache y temporales
+cache/
+tmp/
+temp/
+logs/
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de desarrollo
+*.dev
+*.test
+
+# Archivos de seguridad
+suspicious_files.txt
+.sucuriquarantine/
+
+# Archivos muy grandes de contenido media
+content/fotos/
+content/videos/
+content/img/grandes/

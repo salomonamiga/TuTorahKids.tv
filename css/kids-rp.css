@@ -1,0 +1,132 @@
+@charset "utf-8";
+@media (max-width: 768px) {
+  .navbar-collapse.fix {
+    position: absolute;
+    top: 69px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 0;
+    height: calc(100vh - 72px);
+    margin-bottom: 0 !important;
+    transition: all ease-in-out .1s;
+  }
+  .navbar-collapse.fix.collapsing {
+    -webkit-transition: left 0.2s ease;
+    -o-transition: left 0.2s ease;
+    -moz-transition: left 0.2s ease;
+    transition: left 0.2s ease;
+    left: -10%;
+    height: calc(100vh - 72px);
+    min-height: calc(100vh - 72px);
+    transition: all ease-in-out .1s;
+  }
+  .navbar-collapse.fix.show {
+    left: 0;
+    -webkit-transition: left 0.2s ease-in;
+    -o-transition: left 0.2s ease-in;
+    -moz-transition: left 0.2s ease-in;
+    transition: left 0.2s ease-in;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+    width: 70%;
+    transition: all ease-in-out .1s;
+    box-shadow: inset 0 2px 8px #00000024;
+    padding-bottom: 8rem;
+  }
+  .navbar-toggler.fix {
+    left: 15px;
+    position: absolute;
+    z-index: 2;
+  }
+  .navbar-collapse.fix li.nav-item.active{
+    position: relative;
+  }
+  .navbar-collapse.fix li.nav-item.active::after{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 24px;
+    background-color: #0075BC;
+    top: calc(50% - 12px);
+    left: -15px;
+  }
+}
+
+.ov {
+  overflow: hidden;
+  position: relative;
+}.ov2 {
+  overflow: hidden;
+  position: relative;
+}
+.ov::after {
+  content: '';
+  width: 100%;
+  height: calc(100% + 100px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 11;
+}
+
+@media (max-width: 767px) {
+  #btn-tuto-tv {
+    width: 100%;
+    margin-bottom: .6rem;
+  }
+  #search,
+  #search > input {
+    width: 100%;
+    margin-bottom: .6rem;
+    margin-top: .6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .detalle-video {
+    background-size: contain;
+    background-attachment: inherit;
+  }
+  .detalle-video::before {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 22%, rgba(255, 255, 255, 0) 155%);
+    top: 0;
+    bottom: inherit;
+    height: 35vh;
+  }
+  .imageBox .textBox {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .imageBox .textBox p {
+    bottom: 8px;
+  }
+  .imageBox .textBox .icon-play {
+    width: 30px;
+    height: 30px;
+    left: inherit;
+    right: calc(12% - 15px);
+    top: calc(22% - 15px);
+  }
+}
+
+@media (max-width: 375px) {
+  .imageBox .textBox {
+    font-size: 9px;
+    line-height: 11px;
+  }
+}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+  .mega-menu {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {}

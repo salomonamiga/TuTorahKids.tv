@@ -1,0 +1,122 @@
+# BEGIN - Allow Sucuri Monitoring and Security Services
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^sucuri-(.*)\.php$ - [L]
+RewriteRule ^cloner\.php$ - [L]
+</IfModule>
+# END - Allow Sucuri Monitoring and Security Services
+
+RewriteOptions inherit
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^contacto$ contacto.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(.*)$ $1.php
+
+##RewriteRule ^home$ home.php
+
+# Regla para ver-programa con categoría
+RewriteCond %{QUERY_STRING} ^([^&]+)&vid=([0-9]+)$
+RewriteRule ^ver-programa$ ver-programa.php?vid=%2 [L]
+
+## INSERT DE PROGRAMAS START
+RewriteRule ^clips$ detalle-programa.php?idCategoria=3
+RewriteRule ^documentales$ detalle-programa.php?idCategoria=5
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^recetas$ detalle-programa.php?idCategoria=11
+RewriteRule ^cuentines$ detalle-programa.php?idCategoria=21
+RewriteRule ^blog-de-david$ detalle-programa.php?idCategoria=22
+RewriteRule ^caricatorah$ detalle-programa.php?idCategoria=23
+RewriteRule ^aventuras-en-el-tiempo$ detalle-programa.php?idCategoria=24
+RewriteRule ^ciencia-en-minutos$ detalle-programa.php?idCategoria=28
+RewriteRule ^cuentos-antes-de-dormir$ detalle-programa.php?idCategoria=29
+RewriteRule ^palabras-magicas$ detalle-programa.php?idCategoria=30
+RewriteRule ^cuentos-de-jajamim$ detalle-programa.php?idCategoria=32
+RewriteRule ^johny-y-chito$ detalle-programa.php?idCategoria=35
+RewriteRule ^reporteritos$ detalle-programa.php?idCategoria=36
+RewriteRule ^hazlo-tú$ detalle-programa.php?idCategoria=37
+RewriteRule ^y-tú-¿qué-dices?$ detalle-programa.php?idCategoria=38
+RewriteRule ^las-maravillas-de-hashem$ detalle-programa.php?idCategoria=39
+RewriteRule ^¿cuantos-cuentos-cuentas?$ detalle-programa.php?idCategoria=40
+RewriteRule ^trivia-kids-$ detalle-programa.php?idCategoria=41
+RewriteRule ^tanaj$ detalle-programa.php?idCategoria=43
+RewriteRule ^el-canto-de-la-naturaleza$ detalle-programa.php?idCategoria=44
+RewriteRule ^¿por-qué-hoy-es-especial?$ detalle-programa.php?idCategoria=45
+RewriteRule ^acciones-positivas$ detalle-programa.php?idCategoria=46
+RewriteRule ^simantob-mazal-tov$ detalle-programa.php?idCategoria=47
+RewriteRule ^un-minuto-de-halaja$ detalle-programa.php?idCategoria=48
+RewriteRule ^el-ben-ish-jai$ detalle-programa.php?idCategoria=49
+RewriteRule ^midot-power-kids$ detalle-programa.php?idCategoria=51
+RewriteRule ^el-misterio-de-habib$ detalle-programa.php?idCategoria=52
+RewriteRule ^the-perfect-chef$ detalle-programa.php?idCategoria=57
+RewriteRule ^tu-palabra.tv$ detalle-programa.php?idCategoria=59
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^musica$ detalle-programa.php?idCategoria=6
+RewriteRule ^una-vez-contó-el-rab$ detalle-programa.php?idCategoria=71
+RewriteRule ^la-parasha-con-dovito$ detalle-programa.php?idCategoria=72
+RewriteRule ^mitzvahton$ detalle-programa.php?idCategoria=74
+RewriteRule ^oradorcitos$ detalle-programa.php?idCategoria=75
+RewriteRule ^talent-show$ detalle-programa.php?idCategoria=76
+RewriteRule ^hazlo-en-casa$ detalle-programa.php?idCategoria=88
+RewriteRule ^jaguim$ detalle-programa.php?idCategoria=120
+RewriteRule ^maase-shehaya$ detalle-programa.php?idCategoria=121
+RewriteRule ^tu-torah-en-tus-palabras$ detalle-programa.php?idCategoria=122
+RewriteRule ^sefer-yehoshua$ detalle-programa.php?idCategoria=123
+RewriteRule ^tutorahkids.tv-en-ingles$ detalle-programa.php?idCategoria=124
+RewriteRule ^las-historias-de-los-holtz$ detalle-programa.php?idCategoria=125
+RewriteRule ^alrededor-de-tu-mano$ detalle-programa.php?idCategoria=126
+RewriteRule ^i-feel-emociones-y-sentimiento$ detalle-programa.php?idCategoria=127
+RewriteRule ^cantando-el-alef-bet$ detalle-programa.php?idCategoria=130
+RewriteRule ^aprendiendo-con-shimon$ detalle-programa.php?idCategoria=131
+RewriteRule ^de-colores-$ detalle-programa.php?idCategoria=132
+RewriteRule ^de-figurita-a-figurita$ detalle-programa.php?idCategoria=133
+RewriteRule ^de-colores$ detalle-programa.php?idCategoria=134
+RewriteRule ^las-aventuras-de-pushka$ detalle-programa.php?idCategoria=135
+RewriteRule ^shofetim$ detalle-programa.php?idCategoria=136
+RewriteRule ^el-cuerpo-humano$ detalle-programa.php?idCategoria=137
+RewriteRule ^la-belleza-de-la-creación$ detalle-programa.php?idCategoria=138
+RewriteRule ^origamimania$ detalle-programa.php?idCategoria=140
+RewriteRule ^shmuel-alef$ detalle-programa.php?idCategoria=141
+RewriteRule ^tiempo-de-shalomear$ detalle-programa.php?idCategoria=142
+RewriteRule ^parasha-en-un-minuto$ detalle-programa.php?idCategoria=150
+RewriteRule ^maagal-hashana$ detalle-programa.php?idCategoria=158
+RewriteRule ^destellos-de-musar$ detalle-programa.php?idCategoria=159
+RewriteRule ^shmuel-bet$ detalle-programa.php?idCategoria=184
+RewriteRule ^turisteando-con-kenik-y-lonik$ detalle-programa.php?idCategoria=222
+RewriteRule ^los-niños-de-hoy$ detalle-programa.php?idCategoria=226
+RewriteRule ^de-todo$ detalle-programa.php?idCategoria=230
+RewriteRule ^alto-al-mazal-punch$ detalle-programa.php?idCategoria=233
+RewriteRule ^melajim-alef$ detalle-programa.php?idCategoria=255
+RewriteRule ^destellos-de-mishna$ detalle-programa.php?idCategoria=256
+RewriteRule ^descubre-tu-talento$ detalle-programa.php?idCategoria=257
+RewriteRule ^kids-panama$ detalle-programa.php?idCategoria=260
+RewriteRule ^la-perasha-en-ia---more$ detalle-programa.php?idCategoria=267
+RewriteRule ^curiosidades-del-perek-shira$ detalle-programa.php?idCategoria=268
+RewriteRule ^la-perasha-en-ia---mora$ detalle-programa.php?idCategoria=276
+RewriteRule ^la-perasha-en-ia---escuelas$ detalle-programa.php?idCategoria=277
+RewriteRule ^biografía-de-nuestros-sabios$ detalle-programa.php?idCategoria=278
+RewriteRule ^películas-en-ia$ detalle-programa.php?idCategoria=282
+RewriteRule ^historias-del-tanaj$ detalle-programa.php?idCategoria=284
+RewriteRule ^alef-bet$ detalle-programa.php?idCategoria=66
+RewriteRule ^parasha-de-la-semana$ detalle-programa.php?idCategoria=64
+## INSERT DE PROGRAMAS END
+
+AddHandler application/x-httpd-php74 .php .php5 .php4 .php3
